@@ -11,8 +11,8 @@ class Granted < Formula
   def install
     ldflags = %W[
       -s -w
-      -X github.com/fwdcloudsec/granted/internal/build.Version=#{version}
-      -X github.com/fwdcloudsec/granted/internal/build.ConfigFolderName=.granted
+      -X github.com/common-fate/granted/internal/build.Version=#{version}
+      -X github.com/common-fate/granted/internal/build.ConfigFolderName=.granted
     ]
 
     system "go", "build", *std_go_args(ldflags:), "./cmd/granted"
