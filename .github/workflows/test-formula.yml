@@ -1,0 +1,35 @@
+name: Test Formula
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@master
+
+      - name: Install from source
+        run: brew install --build-from-source ./Formula/granted.rb
+
+      - name: Verify granted version
+        run: granted --version
+
+      - name: Verify assumego symlink
+        run: assumego --version
+
+      - name: Verify shell scripts exist
+        run: |
+          test -f "$(brew --prefix)/bin/assume"
+          test -f "$(brew --prefix)/bin/assume.fish"
+          test -f "$(brew --prefix)/bin/assume.tcsh"
