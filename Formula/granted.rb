@@ -1,8 +1,8 @@
 class Granted < Formula
   desc "Easiest way to access your cloud"
   homepage "https://granted.dev/"
-  url "https://github.com/fwdcloudsec/granted/archive/refs/tags/v0.39.0.tar.gz"
-  sha256 "6f9a4b38ffac2da32d7f6c5d225aca2f799d1f74aadd3783a873ff5d98b94144"
+  url "https://github.com/fwdcloudsec/granted/archive/refs/tags/v0.40.0.tar.gz"
+  sha256 "93170305101876b6508f79f84f8a998f97ed7ffb9ec11d363088875297b00f4e"
   license "MIT"
   head "https://github.com/fwdcloudsec/granted.git", branch: "main"
 
