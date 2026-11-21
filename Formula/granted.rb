@@ -64,8 +64,9 @@ class Granted < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/granted --version")
 
-    output = shell_output("#{bin}/granted auth configure 2>&1", 1)
-    assert_match "[✘] please provide a url argument", output
+    ENV["XDG_CONFIG_HOME"] = testpath
+    output = shell_output("#{bin}/granted registry add 2>&1", 1)
+    assert_match "[✘] Required flags \"name, url\" not set", output
 
     ENV["GRANTED_ALIAS_CONFIGURED"] = "true"
     assert_match version.to_s, shell_output("#{bin}/assume --version")
