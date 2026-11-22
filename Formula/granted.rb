@@ -57,7 +57,7 @@ class Granted < Formula
         alias assume="source $(brew --prefix)/bin/assume.fish"
 
       For tcsh, add to ~/.tcshrc:
-        alias assume "source $(brew --prefix)/bin/assume.tcsh"
+        alias assume "source `brew --prefix`/bin/assume.tcsh"
     EOS
   end
 
